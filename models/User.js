@@ -8,11 +8,15 @@ const userSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      minLength: 3,
+      maxLength: 45,
     },
     lastName: {
       type: String,
       required: true,
       trim: true,
+      minLength: 3,
+      maxLength: 45,
     },
     phone: {
       type: String,
