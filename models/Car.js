@@ -13,15 +13,21 @@ const carSchema = new Schema(
       type: String,
       required: true,
       trim: true,
+      minLength: 3,
+      maxLength: 20,
     },
     plate: {
       type: String,
       required: false,
       trim: true,
+      minLength: 3,
+      maxLength: 20,
     },
     power: {
       type: Number,
       required: false,
+      min: 5,
+      max: 2000,
     },
     owner: {
       type: mongoose.Schema.Types.ObjectId,
