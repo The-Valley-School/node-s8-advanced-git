@@ -9,14 +9,14 @@ const userSchema = new Schema(
       required: true,
       trim: true,
       minLength: 3,
-      minLength: 45,
+      maxLength: 45,
     },
     lastName: {
       type: String,
       required: true,
       trim: true,
       minLength: 3,
-      minLength: 45,
+      maxLength: 45,
     },
     phone: {
       type: String,
