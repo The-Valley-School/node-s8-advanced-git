@@ -9,8 +9,8 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     // Asi leemos query params
-    const page = parseInt(req.query.page);
-    const limit = parseInt(req.query.limit);
+    const page = req.query.page ? parseInt(req.query.page) : 1;
+    const limit = req.query.limit ? parseInt(req.query.limit) : 10;
     const brands = await Brand.find()
       .limit(limit)
       .skip((page - 1) * limit);
