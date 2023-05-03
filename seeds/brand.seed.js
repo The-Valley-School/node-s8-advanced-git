@@ -20,7 +20,7 @@ const brandSeed = async () => {
     const documents = brands.map((brand) => new Brand(brand));
     await Brand.insertMany(documents);
 
-    console.log("Marcas creadas correctamente!");
+    console.log(`Hemos creado ${brands.length} correctamente!`);
   } catch (error) {
     console.error(error);
   } finally {
