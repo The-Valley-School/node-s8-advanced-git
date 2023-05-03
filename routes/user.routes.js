@@ -13,8 +13,16 @@ router.get("/", async (req, res) => {
   console.log("ME HAN PEDIDO USUARIOS!!");
   try {
     // Asi leemos query params
-    const page = parseInt(req.query.page);
-    const limit = parseInt(req.query.limit);
+    let page = 1;
+    if (req.query.page) {
+      page = parseInt(req.query.page);
+    }
+
+    let limit = 10;
+    if (req.query.limit) {
+      limit = parseInt(req.query.limit);
+    }
+
     const users = await User.find()
       .limit(limit)
       .skip((page - 1) * limit);
