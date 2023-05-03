@@ -12,9 +12,10 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   console.log("ME HAN PEDIDO USUARIOS!!");
   try {
-    // Asi leemos query params
+    // Ternario que se queda con el parametro si llega
     const page = req.query.page ? parseInt(req.query.page) : 1;
     const limit = req.query.limit ? parseInt(req.query.limit) : 10;
+
     const users = await User.find()
       .limit(limit)
       .skip((page - 1) * limit);
