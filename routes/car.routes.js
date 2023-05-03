@@ -11,8 +11,16 @@ const router = express.Router();
 router.get("/", async (req, res) => {
   try {
     // Asi leemos query params
-    const page = parseInt(req.query.page);
-    const limit = parseInt(req.query.limit);
+    let page = 1;
+    if (req.query.page) {
+      page = parseInt(req.query.page);
+    }
+
+    let limit = 10;
+    if (req.query.limit) {
+      limit = parseInt(req.query.limit);
+    }
+
     const cars = await Car.find()
       .limit(limit)
       .skip((page - 1) * limit)
