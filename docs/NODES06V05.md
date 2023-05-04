@@ -1,30 +1,15 @@
-# VIDEO 05 - Ejercicio: Relación libros y autores
+# VIDEO 05 - Gitflow
 
-En este ejercicio debes continuar con el API de libros que dejamos en la sesión anterior. Sobre el código que teníamos debes realizar las siguientes modificaciones.
+Gitflow es un flujo de trabajo o metodología de desarrollo de software que utiliza Git como sistema de control de versiones. Fue creado por Vincent Driessen en 2010 y se basa en la idea de que las diferentes etapas del desarrollo de software deben estar separadas en ramas específicas y bien definidas, lo que permite una gestión más eficiente de los cambios en el código.
 
-- Crea un nuevo modelo Autor que almacene la información de un escritor. Debe tener nombre y país.
-- Crea un controlador para poder realizar todas las operaciones CRUD de Autores
-- Crea un seed que nos permita añadir autores de libros, para que te sea más fácil podemos dejarte el array
+En Gitflow, se utilizan dos ramas principales: master y develop. La rama master contiene la versión estable y publicada del software, mientras que la rama develop contiene la última versión del software en desarrollo.
 
-```jsx
-const authorList = [
-  { name: "Gabriel García Márquez", country: "Colombia" },
-  { name: "Jane Austen", country: "England" },
-  { name: "Leo Tolstoy", country: "Russia" },
-  { name: "Virginia Woolf", country: "England" },
-  { name: "Ernest Hemingway", country: "United States" },
-  { name: "Jorge Luis Borges", country: "Argentina" },
-  { name: "Franz Kafka", country: "Czechoslovakia" },
-  { name: "Toni Morrison", country: "United States" },
-  { name: "Haruki Murakami", country: "Japan" },
-  { name: "Chinua Achebe", country: "Nigeria" },
-];
-```
+Además de estas ramas principales, se utilizan otras ramas específicas para distintas etapas del proceso de desarrollo. Estas ramas incluyen:
 
-- Relaciona los libros con autores para que en vez de usar solo un String, utilicen la nueva entidad Author
-- Modifica las peticiones de libros para que devuelvan la información de su autor haciendo uso de populate
-- Crea un fichero book-relations.seed.js que genere la relaciones entre autores y libros
+- feature: se utilizan para desarrollar nuevas características y funcionalidades. Se crean a partir de la rama develop y se fusionan de vuelta en develop cuando el desarrollo está completo.
+- release: se utilizan para preparar el software para su lanzamiento. Se crean a partir de la rama develop y se fusionan en master y develop cuando están listas para su publicación.
+- hotfix: se utilizan para corregir errores críticos en la versión actual del software. Se crean a partir de la rama master y se fusionan en master y develop cuando la corrección está completa.
 
-Recuerda que puedes consultar todo el código que hemos visto durante la sesión, en el siguiente repositorio git:
+Este enfoque de ramificación y fusión en Gitflow ayuda a los equipos de desarrollo a mantener un control más preciso sobre los cambios en el código y a facilitar el trabajo en equipo. Además, al tener diferentes etapas de desarrollo separadas en diferentes ramas, los desarrolladores pueden trabajar en paralelo de manera más efectiva sin interferir en el trabajo de los demás.
 
-<https://github.com/The-Valley-School/node-s6-relations>
+![gitflow.png](/docs/assets/gitflow.png)

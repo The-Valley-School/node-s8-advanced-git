@@ -1,32 +1,25 @@
-# VIDEO 02 - Calculo al vuelo de propiedad relacionada
+# VIDEO 02 - Mergeo de ramas en local
 
-Ahora que ya tenemos relacionados los coches con su dueño, es posible que nos interese recuperar los coches que tiene un usuario.
+Para fusionar una rama en Git desde la línea de comandos, se debe seguir los siguientes pasos:
 
-Para hacer esto vamos a añadir un parámetro en el la ruta que se llame includeCars, el cual hará que realizamos una segunda query a la base de datos:
+Cambiarse a la rama en la que se desea fusionar los cambios. Por ejemplo, si se desea fusionar los cambios de la rama "nueva-caracteristica" en la rama principal “main”, se debe escribir el siguiente comando:
 
 ```jsx
-// CRUD: READ
-router.get("/:id", async (req, res) => {
-  try {
-    const id = req.params.id;
-    const user = await User.findById(id);
-
-    if (user) {
-      const temporalUser = user.toObject();
-      const includeCars = req.query.includeCars === "true";
-      if (includeCars) {
-        const cars = await Car.find({ owner: id });
-        temporalUser.cars = cars;
-      }
-
-      res.json(temporalUser);
-    } else {
-      res.status(404).json({});
-    }
-  } catch (error) {
-    res.status(500).json(error);
-  }
-});
+git checkout main
 ```
 
-Para poder añadir los coches al usuario vamos a convertir primero el usuario a objeto con el método toObject()
+Ejecutar el comando git merge seguido del nombre de la rama que se desea fusionar. Por ejemplo, si se desea fusionar los cambios de la rama "nueva-caracteristica" en la rama "main", se debe escribir el siguiente comando:
+
+```jsx
+git merge nueva-caracteristica
+```
+
+Git intentará fusionar automáticamente los cambios de ambas ramas. En algunos casos, puede haber conflictos de fusión que necesiten ser resueltos manualmente.
+
+Por último, se debe confirmar la fusión con el comando git commit. Git abrirá un editor de texto para escribir un mensaje de confirmación que describa los cambios que se han fusionado.
+
+```jsx
+git commit
+```
+
+Una vez que se ha confirmado la fusión, los cambios de la rama fusionada estarán disponibles en la rama principal.
